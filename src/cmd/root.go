@@ -4,9 +4,11 @@
 package cmd
 
 import (
+	"encdec/executor"
+	"encdec/helpers"
+	"fmt"
 	"github.com/spf13/cobra"
 	"os"
-	"encdec/helpers"
 )
 
 var version = "0.100-0 (2023.07.09)"
@@ -27,6 +29,24 @@ var clCmd = &cobra.Command{
 	},
 }
 
+var encodeCmd = &cobra.Command{
+	Use:     "encode",
+	Aliases: []string{"enc", "encrypt"},
+	Short:   "Encrypts a string passed in argument",
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Encoded string is: %s\n\n", executor.Encode(args[0]))
+	},
+}
+
+var decodeCmd = &cobra.Command{
+	Use:     "decode",
+	Aliases: []string{"dec", "decrypt"},
+	Short:   "Decrypts a string passed in argument",
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Decoded string is: %s\n\n", executor.Decode(args[0]))
+	},
+}
+
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
@@ -36,6 +56,8 @@ func Execute() {
 
 func init() {
 	rootCmd.AddCommand(clCmd)
+	rootCmd.AddCommand(encodeCmd)
+	rootCmd.AddCommand(decodeCmd)
 
-	rootCmd.PersistentFlags().StringVarP(&config.PortainerHostConfigFile, "environment", "e", "push2registry.json", "Environment file.")
+	rootCmd.PersistentFlags().BoolVarP(&executor.Prompt4K, "key", "k", false, "Should we prompt for a secret key")
 }
