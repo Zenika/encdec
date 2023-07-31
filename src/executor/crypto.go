@@ -15,6 +15,9 @@ import (
 
 var Key = "secret key 2 encrypt and decrypt"
 var Prompt4K = false
+var FileEncryptionDecryption = false
+
+const chunkSize = 64 * 1024 // 64 KB chunk size
 
 // reference: https://gist.github.com/jlinoff/e8e26b4ffa38d379c7f1891fd174a6d0, the getPassword2.go
 func getSecretKey(prompt string) string {

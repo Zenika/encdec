@@ -16,6 +16,7 @@ func Changelog() {
 	fmt.Print(`
 VERSION		DATE			COMMENT
 -------		----			-------
+0.200		2023.07.29		added file encryption/decryption capabilities
 0.100		2023.07.09		stub
 `)
 }
