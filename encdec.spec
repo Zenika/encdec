@@ -54,6 +54,14 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Mon Jul 31 2023 builder <builder@famillegratton.net> 0.200-0
+- Go version bump, also forgotten in previous commits (my_email@internet.net)
+- Version bump (forgotten in previous commit) (jean-
+  francois@famillegratton.net)
+- Completed 0.200 (jean-francois@famillegratton.net)
+- File Dec-Enc facilities, stub 1 (jean-francois@famillegratton.net)
+- New brandh to fully encode/decode files (jean-francois@famillegratton.net)
+
 * Mon Jul 10 2023 builder <builder@famillegratton.net> 0.100-0
 - new package built with tito
 
