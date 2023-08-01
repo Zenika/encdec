@@ -54,6 +54,9 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Mon Jul 31 2023 builder <builder@famillegratton.net> 0.200-1
+- Doc and version updates (jean-francois@famillegratton.net)
+
 * Mon Jul 31 2023 builder <builder@famillegratton.net> 0.200-0
 - Go version bump, also forgotten in previous commits (my_email@internet.net)
 - Version bump (forgotten in previous commit) (jean-
