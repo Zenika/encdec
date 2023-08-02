@@ -14,7 +14,24 @@ import (
 	"os"
 )
 
-func EncodeFile(source, dest string) error {
+func EncodeFile(sourcefile string) error {
+	var err error = nil
+	var destfile = sourcefile + ".enc"
+
+	if err = encode(sourcefile, destfile); err != nil {
+		return err
+	}
+
+	if !Keep {
+		if err = os.Remove(sourcefile); err != nil {
+			return err
+		}
+		err = os.Rename(destfile, sourcefile)
+	}
+	return err
+}
+
+func encode(source, dest string) error {
 	if Prompt4K {
 		Key = getSecretKey("Please enter a 32 bytes (characters) key: ")
 	}

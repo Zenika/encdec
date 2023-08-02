@@ -15,6 +15,7 @@ import (
 
 var Key = "secret key 2 encrypt and decrypt"
 var Prompt4K = false
+var Keep = false
 var FileEncryptionDecryption = false
 
 const chunkSize = 64 * 1024 // 64 KB chunk size

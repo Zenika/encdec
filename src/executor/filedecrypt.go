@@ -13,7 +13,24 @@ import (
 	"os"
 )
 
-func DecodeFile(source, dest string) error {
+func DecodeFile(sourcefile string) error {
+	var err error = nil
+	destfile := sourcefile + ".dec"
+	if err = decode(sourcefile, destfile); err != nil {
+		return err
+	}
+
+	if !Keep {
+		if err = os.Remove(sourcefile); err != nil {
+			return err
+		}
+		err = os.Rename(destfile, sourcefile)
+	}
+
+	return err
+}
+
+func decode(source, dest string) error {
 	if Prompt4K {
 		Key = getSecretKey("Please enter a 32 bytes (characters) key: ")
 	}

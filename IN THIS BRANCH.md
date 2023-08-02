@@ -2,5 +2,7 @@
 ___
 <H2>What will be in this branch</H2>
 
-- Encode / decode whole files
+- Doc update
+- Flag -k renamed to -p
+- New flag (-k) to keep source files
 

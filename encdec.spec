@@ -2,8 +2,8 @@
 %define _build_id_links none
 %define _name   encdec
 %define _prefix /opt
-%define _version 0.200
-%define _rel 1
+%define _version 1.000
+%define _rel 0
 %define _arch x86_64
 %define _binaryname encdec
 
@@ -58,7 +58,7 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 - Doc and version updates (jean-francois@famillegratton.net)
 
 * Mon Jul 31 2023 builder <builder@famillegratton.net> 0.200-0
-- Go version bump, also forgotten in previous commits (my_email@internet.net)
+- Go version bump, also forgotten in previous commits (builder@famillegratton.net)
 - Version bump (forgotten in previous commit) (jean-
   francois@famillegratton.net)
 - Completed 0.200 (jean-francois@famillegratton.net)

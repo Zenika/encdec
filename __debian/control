@@ -1,5 +1,5 @@
 Package: encdec
-Version: 0.200-1
+Version: 1.000-0
 Architecture: amd64
 Maintainer: J.F.Gratton <nexus@famillegratton.net>
 Description: Encrypt - decrypt strings
