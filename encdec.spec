@@ -54,6 +54,9 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Wed Aug 02 2023 builder <builder@famillegratton.net> 1.000-0
+- Prod-ready release: 1.000-0 (jean-francois@famillegratton.net)
+
 * Mon Jul 31 2023 builder <builder@famillegratton.net> 0.200-1
 - Doc and version updates (jean-francois@famillegratton.net)
 
