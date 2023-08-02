@@ -10,7 +10,7 @@ echo "Building binary from source"
 cd ../src
 go build -o ../__debian/${PKGDIR}/opt/bin/encdec .
 strip ../__debian/${PKGDIR}/opt/bin/encdec
-chown 0:0 ../__debian/${PKGDIR}/opt/bin/encdec
+sudo chown 0:0 ../__debian/${PKGDIR}/opt/bin/encdec
 
 echo "Binary built. Now packaging..."
 cd ../__debian/
