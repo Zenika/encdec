@@ -3,7 +3,7 @@
 %define _name   encdec
 %define _prefix /opt
 %define _version 1.000
-%define _rel 0
+%define _rel 1
 %define _arch x86_64
 %define _binaryname encdec
 
@@ -19,11 +19,9 @@ URL:        https://github.com/jeanfrancoisgratton/encdec
 Source0:    %{name}-%{_version}.tar.gz
 BuildArchitectures: x86_64
 BuildRequires: gcc
-#Requires: sudo
-#Obsoletes: vmman1 > 1.140
 
 %description
-Encode and decode AES-256 strings
+Encode and decode AES-256 strings and files
 
 %prep
 %autosetup
