@@ -52,6 +52,9 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Mon Nov 06 2023 RPM Builder <builder@famillegratton.net> 1.02.00-1
+- Go version bump (jean-francois@famillegratton.net)
+
 * Mon Nov 06 2023 RPM Builder <builder@famillegratton.net> 1.02.00-0
 - Fixed argcount error, version numbering scheme change (jean-
   francois@famillegratton.net)
