@@ -11,13 +11,11 @@ import (
 	"os"
 )
 
-var version = "1.000-1 (2023.08.02)"
-
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:     "encdec",
 	Short:   "Encode and decode a string or file to-from AES-256",
-	Version: version,
+	Version: "1.02.00-0 (2023.11.06)",
 }
 
 var clCmd = &cobra.Command{
@@ -40,7 +38,7 @@ var encodeCmd = &cobra.Command{
 			os.Exit(0)
 		}
 		// encode a file
-		if len(args) < 2 {
+		if len(args) < 1 {
 			fmt.Println("You need to specify the source filename")
 			os.Exit(1)
 		}
@@ -62,7 +60,7 @@ var decodeCmd = &cobra.Command{
 			os.Exit(0)
 		}
 		// decode a file
-		if len(args) < 2 {
+		if len(args) < 1 {
 			fmt.Println("You need to specify the source filename")
 			os.Exit(1)
 		}

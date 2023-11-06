@@ -16,6 +16,7 @@ func Changelog() {
 	fmt.Print(`
 VERSION		DATE			COMMENT
 -------		----			-------
+1.02.00		2023.11.06		Fixed argument count error, version numbering scheme change
 1.000		2023.08.02		Updated changelogs and some forgotten release numbers in packaging scripts
 0.200		2023.07.31		added file encryption/decryption capabilities
 0.100		2023.07.09		stub
