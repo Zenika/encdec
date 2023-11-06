@@ -52,6 +52,11 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Mon Nov 06 2023 RPM Builder <builder@famillegratton.net> 1.02.00-0
+- Fixed argcount error, version numbering scheme change (jean-
+  francois@famillegratton.net)
+- Fixed chown issue in packaging (jean-francois@famillegratton.net)
+
 * Wed Aug 02 2023 builder <builder@famillegratton.net> 1.000-1
 - Updated changelog and some forgotten relase numbers in packaging scripts
   (jean-francois@famillegratton.net)
