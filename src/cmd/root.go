@@ -5,17 +5,20 @@ package cmd
 
 import (
 	"encdec/executor"
-	"encdec/helpers"
 	"fmt"
+	hf "github.com/jeanfrancoisgratton/helperFunctions"
 	"github.com/spf13/cobra"
 	"os"
+	"runtime"
 )
+
+var Quiet = false
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:     "encdec",
 	Short:   "Encode and decode a string or file to-from AES-256",
-	Version: "1.02.00-0 (2023.11.06)",
+	Version: hf.White(fmt.Sprintf("1.10.00-0-%s (2024.06.25)", runtime.GOARCH)),
 }
 
 var clCmd = &cobra.Command{
@@ -23,7 +26,7 @@ var clCmd = &cobra.Command{
 	Aliases: []string{"cl"},
 	Short:   "Shows changelog",
 	Run: func(cmd *cobra.Command, args []string) {
-		helpers.Changelog()
+		changelog()
 	},
 }
 
@@ -34,7 +37,11 @@ var encodeCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		if !executor.FileEncryptionDecryption {
 			// encode a string
-			fmt.Printf("Encoded string is: %s\n\n", executor.Encode(args[0]))
+			if Quiet {
+				fmt.Printf("%s\n", executor.Encode(args[0]))
+			} else {
+				fmt.Printf("Encoded string is: %s\n\n", executor.Encode(args[0]))
+			}
 			os.Exit(0)
 		}
 		// encode a file
@@ -56,7 +63,11 @@ var decodeCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		if !executor.FileEncryptionDecryption {
 			// decode a string
-			fmt.Printf("Decoded string is: %s\n\n", executor.Decode(args[0]))
+			if Quiet {
+				fmt.Printf("%s\n", executor.Decode(args[0]))
+			} else {
+				fmt.Printf("Decoded string is: %s\n\n", executor.Decode(args[0]))
+			}
 			os.Exit(0)
 		}
 		// decode a file
@@ -83,7 +94,23 @@ func init() {
 	rootCmd.AddCommand(encodeCmd)
 	rootCmd.AddCommand(decodeCmd)
 
+	rootCmd.PersistentFlags().BoolVarP(&Quiet, "quiet", "q", false, "Only show the encrypted/decrypted string")
 	rootCmd.PersistentFlags().BoolVarP(&executor.Prompt4K, "prompt", "p", false, "Should we prompt for a secret key")
 	rootCmd.PersistentFlags().BoolVarP(&executor.FileEncryptionDecryption, "file", "f", false, "Are we dealing with a file or not")
 	rootCmd.PersistentFlags().BoolVarP(&executor.FileEncryptionDecryption, "keep", "k", false, "Should we keep the original file")
+}
+
+func changelog() {
+	//fmt.Printf("\x1b[2J")
+	fmt.Printf("\x1bc")
+
+	fmt.Print(`
+VERSION		DATE			COMMENT
+-------		----			-------
+1.10.00		2024.06.25		Added -q switch, moved to github's helperFunctions package
+1.02.00		2023.11.06		Fixed argument count error, version numbering scheme change
+1.000		2023.08.02		Updated changelogs and some forgotten release numbers in packaging scripts
+0.200		2023.07.31		added file encryption/decryption capabilities
+0.100		2023.07.09		stub
+`)
 }
