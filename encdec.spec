@@ -52,6 +52,10 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Fri Aug 09 2024 RPM Builder <builder@famillegratton.net> 1.20.00-0
+- Better file handling, gha added, go version bump (jean-
+  francois@famillegratton.net)
+
 * Tue Jun 25 2024 RPM Builder <builder@famillegratton.net> 1.10.00-0
 - Added a -q switch (jean-francois@famillegratton.net)
 - Updated to GO 1.22.4 (jean-francois@famillegratton.net)
