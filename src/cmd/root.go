@@ -18,7 +18,7 @@ var Quiet = false
 var rootCmd = &cobra.Command{
 	Use:     "encdec",
 	Short:   "Encode and decode a string or file to-from AES-256",
-	Version: hf.White(fmt.Sprintf("1.10.00-0-%s (2024.06.25)", runtime.GOARCH)),
+	Version: hf.White(fmt.Sprintf("1.20.00-0-%s (2024.08.09)", runtime.GOARCH)),
 }
 
 var clCmd = &cobra.Command{
@@ -33,6 +33,7 @@ var clCmd = &cobra.Command{
 var encodeCmd = &cobra.Command{
 	Use:     "encode",
 	Aliases: []string{"enc", "encrypt"},
+	Example: "encdec enc {[-f sourcefile [destfile]] | sourcestring}",
 	Short:   "Encrypts a string or a file",
 	Run: func(cmd *cobra.Command, args []string) {
 		if !executor.FileEncryptionDecryption {
@@ -49,7 +50,13 @@ var encodeCmd = &cobra.Command{
 			fmt.Println("You need to specify the source filename")
 			os.Exit(1)
 		}
-		if err := executor.EncodeFile(args[0]); err != nil {
+		dst := ""
+		if len(args) > 1 {
+			dst = args[1]
+		} else {
+			dst = ""
+		}
+		if err := executor.EncodeFile(args[0], dst); err != nil {
 			fmt.Printf("Error encoding %s : %v", args[0], err)
 			os.Exit(2)
 		}
@@ -59,6 +66,7 @@ var encodeCmd = &cobra.Command{
 var decodeCmd = &cobra.Command{
 	Use:     "decode",
 	Aliases: []string{"dec", "decrypt"},
+	Example: "encdec dec {[-f sourcefile [destfile]] | sourcestring}",
 	Short:   "Decrypts a string or a file",
 	Run: func(cmd *cobra.Command, args []string) {
 		if !executor.FileEncryptionDecryption {
@@ -75,7 +83,13 @@ var decodeCmd = &cobra.Command{
 			fmt.Println("You need to specify the source filename")
 			os.Exit(1)
 		}
-		if err := executor.DecodeFile(args[0]); err != nil {
+		dst := ""
+		if len(args) > 1 {
+			dst = args[1]
+		} else {
+			dst = ""
+		}
+		if err := executor.DecodeFile(args[0], dst); err != nil {
 			fmt.Printf("Error decoding %s : %v", args[0], err)
 			os.Exit(2)
 		}
@@ -107,6 +121,7 @@ func changelog() {
 	fmt.Print(`
 VERSION		DATE			COMMENT
 -------		----			-------
+1.20.00		2024.08.09		Better file handling for destination file, added github actions
 1.10.00		2024.06.25		Added -q switch, moved to github's helperFunctions package
 1.02.00		2023.11.06		Fixed argument count error, version numbering scheme change
 1.000		2023.08.02		Updated changelogs and some forgotten release numbers in packaging scripts

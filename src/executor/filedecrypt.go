@@ -13,9 +13,12 @@ import (
 	"os"
 )
 
-func DecodeFile(sourcefile string) error {
+func DecodeFile(sourcefile, destfile string) error {
 	var err error = nil
-	destfile := sourcefile + ".dec"
+
+	if destfile == "" {
+		destfile = sourcefile + ".dec"
+	}
 	if err = decode(sourcefile, destfile); err != nil {
 		return err
 	}

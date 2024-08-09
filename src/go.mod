@@ -1,6 +1,6 @@
 module encdec
 
-go 1.22.4
+go 1.22.5
 
 require (
 	github.com/jwalton/gchalk v1.3.0

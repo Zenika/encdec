@@ -14,9 +14,11 @@ import (
 	"os"
 )
 
-func EncodeFile(sourcefile string) error {
+func EncodeFile(sourcefile, destfile string) error {
 	var err error = nil
-	var destfile = sourcefile + ".enc"
+	if destfile == "" {
+		destfile = sourcefile + ".enc"
+	}
 
 	if err = encode(sourcefile, destfile); err != nil {
 		return err
