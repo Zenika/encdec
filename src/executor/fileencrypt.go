@@ -42,7 +42,9 @@ func encode(source, dest string) error {
 		os.Exit(1)
 	}
 
-	fmt.Println("Encoding ", source)
+	if !Quiet {
+		fmt.Println("Encoding ", source)
+	}
 	key := []byte(Key)
 	// Create a new AES cipher block based on the provided encryption key
 	block, err := aes.NewCipher(key)
