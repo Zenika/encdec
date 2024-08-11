@@ -12,8 +12,6 @@ import (
 	"runtime"
 )
 
-var Quiet = false
-
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:     "encdec",
@@ -38,7 +36,7 @@ var encodeCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		if !executor.FileEncryptionDecryption {
 			// encode a string
-			if Quiet {
+			if executor.Quiet {
 				fmt.Printf("%s\n", executor.Encode(args[0]))
 			} else {
 				fmt.Printf("Encoded string is: %s\n\n", executor.Encode(args[0]))
@@ -71,7 +69,7 @@ var decodeCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		if !executor.FileEncryptionDecryption {
 			// decode a string
-			if Quiet {
+			if executor.Quiet {
 				fmt.Printf("%s\n", executor.Decode(args[0]))
 			} else {
 				fmt.Printf("Decoded string is: %s\n\n", executor.Decode(args[0]))
@@ -108,7 +106,7 @@ func init() {
 	rootCmd.AddCommand(encodeCmd)
 	rootCmd.AddCommand(decodeCmd)
 
-	rootCmd.PersistentFlags().BoolVarP(&Quiet, "quiet", "q", false, "Only show the encrypted/decrypted string")
+	rootCmd.PersistentFlags().BoolVarP(&executor.Quiet, "quiet", "q", false, "Only show the encrypted/decrypted string")
 	rootCmd.PersistentFlags().BoolVarP(&executor.Prompt4K, "prompt", "p", false, "Should we prompt for a secret key")
 	rootCmd.PersistentFlags().BoolVarP(&executor.FileEncryptionDecryption, "file", "f", false, "Are we dealing with a file or not")
 	rootCmd.PersistentFlags().BoolVarP(&executor.FileEncryptionDecryption, "keep", "k", false, "Should we keep the original file")

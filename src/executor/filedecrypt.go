@@ -41,7 +41,9 @@ func decode(source, dest string) error {
 		fmt.Printf("Current key is only %v bytes long. It needs to be of exactly 32 bytes. Aborting.\n", len(Key))
 		os.Exit(1)
 	}
-	fmt.Println("Decoding ", source)
+	if !Quiet {
+		fmt.Println("Decoding ", source)
+	}
 	key := []byte(Key)
 
 	// Create a new AES cipher block based on the provided encryption key
