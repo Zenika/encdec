@@ -1,10 +1,20 @@
+%ifarch aarch64
+%global _arch aarch64
+%global BuildArchitectures aarch64
+%endif
+
+%ifarch x86_64
+%global _arch x86_64
+%global BuildArchitectures x86_64
+%endif
+
 %define debug_package   %{nil}
 %define _build_id_links none
 %define _name   encdec
 %define _prefix /opt
 %define _version 1.20.01
-%define _rel 0
-%define _arch aarch64
+%define _rel 1
+#%define _arch aarch64
 %define _binaryname encdec
 
 Name:       encdec
@@ -17,7 +27,7 @@ License:    GPL2.0
 URL:        https://github.com/jeanfrancoisgratton/encdec
 
 Source0:    %{name}-%{_version}.tar.gz
-BuildArchitectures: aarch64
+#BuildArchitectures: aarch64
 BuildRequires: gcc
 
 %description
