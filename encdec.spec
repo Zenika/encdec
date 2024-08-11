@@ -62,6 +62,9 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Sun Aug 11 2024 RPM Builder <builder@famillegratton.net> 1.20.01-1
+- Make the specfile more arch-independant (jean-francois@famillegratton.net)
+
 * Sun Aug 11 2024 RPM Builder <builder@famillegratton.net> 1.20.01-0
 - Changed arch moniker on aarch64 (jean-francois@famillegratton.net)
 - Fixed -q issue (jean-francois@famillegratton.net)
