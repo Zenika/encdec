@@ -52,6 +52,10 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Sun Aug 11 2024 RPM Builder <builder@famillegratton.net> 1.20.01-0
+- Changed arch moniker on aarch64 (jean-francois@famillegratton.net)
+- Fixed -q issue (jean-francois@famillegratton.net)
+
 * Fri Aug 09 2024 RPM Builder <builder@famillegratton.net> 1.20.00-0
 - Better file handling, gha added, go version bump (jean-
   francois@famillegratton.net)
