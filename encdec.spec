@@ -4,7 +4,7 @@
 %define _prefix /opt
 %define _version 1.20.00
 %define _rel 0
-%define _arch x86_64
+%define _arch aarch64
 %define _binaryname encdec
 
 Name:       encdec
@@ -17,7 +17,7 @@ License:    GPL2.0
 URL:        https://github.com/jeanfrancoisgratton/encdec
 
 Source0:    %{name}-%{_version}.tar.gz
-BuildArchitectures: x86_64
+BuildArchitectures: aarch64
 BuildRequires: gcc
 
 %description
