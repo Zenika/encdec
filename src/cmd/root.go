@@ -16,7 +16,7 @@ import (
 var rootCmd = &cobra.Command{
 	Use:     "encdec",
 	Short:   "Encode and decode a string or file to-from AES-256",
-	Version: hf.White(fmt.Sprintf("1.20.01-1-%s (2024.08.12)", runtime.GOARCH)),
+	Version: hf.White(fmt.Sprintf("1.20.01-2-%s (2024.08.12)", runtime.GOARCH)),
 }
 
 var clCmd = &cobra.Command{

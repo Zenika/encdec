@@ -13,7 +13,7 @@
 %define _name   encdec
 %define _prefix /opt
 %define _version 1.20.01
-%define _rel 1
+%define _rel 2
 #%define _arch aarch64
 %define _binaryname encdec
 
