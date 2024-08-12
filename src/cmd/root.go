@@ -16,7 +16,7 @@ import (
 var rootCmd = &cobra.Command{
 	Use:     "encdec",
 	Short:   "Encode and decode a string or file to-from AES-256",
-	Version: hf.White(fmt.Sprintf("1.20.00-0-%s (2024.08.09)", runtime.GOARCH)),
+	Version: hf.White(fmt.Sprintf("1.20.01-1-%s (2024.08.12)", runtime.GOARCH)),
 }
 
 var clCmd = &cobra.Command{
@@ -119,7 +119,7 @@ func changelog() {
 	fmt.Print(`
 VERSION		DATE			COMMENT
 -------		----			-------
-1.20.00		2024.08.09		Better file handling for destination file, added github actions
+1.20.01		2024.08.12		Better file handling for destination file, added github actions, go version bump
 1.10.00		2024.06.25		Added -q switch, moved to github's helperFunctions package
 1.02.00		2023.11.06		Fixed argument count error, version numbering scheme change
 1.000		2023.08.02		Updated changelogs and some forgotten release numbers in packaging scripts
