@@ -62,6 +62,9 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Mon Aug 12 2024 RPM Builder <builder@famillegratton.net> 1.21.00-0
+- inverted the -q switch (jean-francois@famillegratton.net)
+
 * Mon Aug 12 2024 RPM Builder <builder@famillegratton.net> 1.20.01-2
   francois@famillegratton.net)
 - Go and package version bump (jean-francois@famillegratton.net)
