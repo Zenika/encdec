@@ -62,6 +62,10 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Mon Aug 12 2024 RPM Builder <builder@famillegratton.net> 1.20.01-2
+  francois@famillegratton.net)
+- Go and package version bump (jean-francois@famillegratton.net)
+
 * Sun Aug 11 2024 RPM Builder <builder@famillegratton.net> 1.20.01-1
 - Make the specfile more arch-independant (jean-francois@famillegratton.net)
 
