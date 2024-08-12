@@ -12,8 +12,8 @@
 %define _build_id_links none
 %define _name   encdec
 %define _prefix /opt
-%define _version 1.20.01
-%define _rel 2
+%define _version 1.21.00
+%define _rel 0
 #%define _arch aarch64
 %define _binaryname encdec
 
