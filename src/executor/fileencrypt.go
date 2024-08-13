@@ -34,18 +34,18 @@ func EncodeFile(sourcefile, destfile string) error {
 }
 
 func encode(source, dest string) error {
-	if Prompt4K {
-		Key = getSecretKey("Please enter a 32 bytes (characters) key: ")
+	if PromptForKeys {
+		SecretKey = getSecretKey("Please enter a 32 bytes (characters) key: ")
 	}
-	if len(Key) != 32 {
-		fmt.Printf("Current key is only %v bytes long. It needs to be of exactly 32 bytes. Aborting.\n", len(Key))
+	if len(SecretKey) != 32 {
+		fmt.Printf("Current key is only %v bytes long. It needs to be of exactly 32 bytes. Aborting.\n", len(SecretKey))
 		os.Exit(1)
 	}
 
 	if !Quiet {
 		fmt.Println("Encoding ", source)
 	}
-	key := []byte(Key)
+	key := []byte(SecretKey)
 	// Create a new AES cipher block based on the provided encryption key
 	block, err := aes.NewCipher(key)
 	if err != nil {

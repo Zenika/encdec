@@ -10,7 +10,7 @@ package executor
 */
 
 var Quiet = false
-var Key = "secret key 2 encrypt and decrypt"
-var Prompt4K = false
+var SecretKey = "secret key 2 encrypt and decrypt"
+var PromptForKeys = false
 var Keep = false
-var FileEncryptionDecryption = false
+var FileOps = false
