@@ -62,6 +62,9 @@ install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}%{_bindir}/%{_binaryn
 
 
 %changelog
+* Tue Aug 13 2024 RPM Builder <builder@famillegratton.net> 1.21.02-0
+- global variable re-scoping (jean-francois@famillegratton.net)
+
 * Mon Aug 12 2024 RPM Builder <builder@famillegratton.net> 1.21.01-0
 - version bump, and tag fix in GHA (jean-francois@famillegratton.net)
 
