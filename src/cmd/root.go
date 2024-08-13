@@ -16,7 +16,7 @@ import (
 var rootCmd = &cobra.Command{
 	Use:     "encdec",
 	Short:   "Encode and decode a string or file to-from AES-256",
-	Version: hf.White(fmt.Sprintf("1.21.01-0-%s (2024.08.12)", runtime.GOARCH)),
+	Version: hf.White(fmt.Sprintf("1.21.02-0-%s (2024.08.13)", runtime.GOARCH)),
 }
 
 var clCmd = &cobra.Command{
@@ -108,8 +108,11 @@ func init() {
 
 	rootCmd.PersistentFlags().BoolVarP(&executor.Quiet, "quiet", "q", true, "Only show the encrypted/decrypted string")
 	rootCmd.PersistentFlags().BoolVarP(&executor.PromptForKeys, "prompt", "p", false, "Should we prompt for a secret key")
-	rootCmd.PersistentFlags().BoolVarP(&executor.FileOps, "file", "f", false, "Are we dealing with a file or not")
-	rootCmd.PersistentFlags().BoolVarP(&executor.Keep, "keep", "k", false, "Should we keep the original file")
+	rootCmd.PersistentFlags().BoolVarP(&executor.DEBUG, "debug", "", false, "Debug mode: show extra output")
+	decodeCmd.PersistentFlags().BoolVarP(&executor.FileOps, "file", "f", false, "Are we dealing with a file or not")
+	encodeCmd.PersistentFlags().BoolVarP(&executor.FileOps, "file", "f", false, "Are we dealing with a file or not")
+	decodeCmd.PersistentFlags().BoolVarP(&executor.Keep, "keep", "k", false, "Should we keep the original file")
+	encodeCmd.PersistentFlags().BoolVarP(&executor.Keep, "keep", "k", false, "Should we keep the original file")
 }
 
 func changelog() {
@@ -119,6 +122,7 @@ func changelog() {
 	fmt.Print(`
 VERSION		DATE			COMMENT
 -------		----			-------
+1.21.02		2024.08.13		Variables reshuffling
 1.21.01		2024.08.12		Inverted quiet-verbose switch
 1.20.01		2024.08.12		Better file handling for destination file, added github actions, go version bump
 1.10.00		2024.06.25		Added -q switch, moved to github's helperFunctions package

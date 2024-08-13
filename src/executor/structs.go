@@ -14,3 +14,4 @@ var SecretKey = "secret key 2 encrypt and decrypt"
 var PromptForKeys = false
 var Keep = false
 var FileOps = false
+var DEBUG = false

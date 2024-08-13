@@ -19,6 +19,12 @@ func DecodeFile(sourcefile, destfile string) error {
 	if destfile == "" {
 		destfile = sourcefile + ".dec"
 	}
+	//if DEBUG {
+	//	fmt.Printf("[DecodeFile] source file %s\n", sourcefile)
+	//	fmt.Printf("[DecodeFile] output file %s\n", destfile)
+	//	fmt.Printf("[DecodeFile] keep file ? %\n", Keep)
+	//	fmt.Printf("[DecodeFile] keep file ? % %\n", Quiet)
+	//}
 	if err = decode(sourcefile, destfile); err != nil {
 		return err
 	}
@@ -99,6 +105,8 @@ func decode(source, dest string) error {
 		}
 	}
 
-	fmt.Sprintf("Succesfully decoded %s as %s\n", source, dest)
+	if !Quiet {
+		fmt.Printf("Succesfully decoded %s as %s\n", source, dest)
+	}
 	return nil
 }

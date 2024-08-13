@@ -19,6 +19,12 @@ func EncodeFile(sourcefile, destfile string) error {
 	if destfile == "" {
 		destfile = sourcefile + ".enc"
 	}
+	//if DEBUG {
+	//	fmt.Println("[EncodeFile] source file:", sourcefile)
+	//	fmt.Println("[EncodeFile] output file:", destfile)
+	//	fmt.Println("[EncodeFile] keep file?", Keep)
+	//	fmt.Println("[EncodeFile] quiesce output?", Quiet)
+	//}
 
 	if err = encode(sourcefile, destfile); err != nil {
 		return err
@@ -102,6 +108,8 @@ func encode(source, dest string) error {
 		}
 	}
 
-	fmt.Sprintf("Succesfully encoded %s as %s\n", source, dest)
+	if !Quiet {
+		fmt.Printf("Succesfully encoded %s as %s\n", source, dest)
+	}
 	return nil
 }
